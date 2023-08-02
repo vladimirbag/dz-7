@@ -2,15 +2,15 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        SolarSystem earth = SolarSystem.EARTH;
-        System.out.println("Planet: " + earth.name());
-        System.out.println("Ordinal from Sun: " + earth.getOrdinalFromSun());
-        System.out.println("Distance from previous planet: " + earth.getDistanceFromPrevious());
-        System.out.println("Distance from Sun: " + earth.getDistanceFromSun());
-        System.out.println("Radius: " + earth.getRadius());
-        System.out.println("Previous planet: " + earth.getPreviousPlanet());
-        System.out.println("Next planet: " + earth.getNextPlanet());
+        SolarSystem mercury = SolarSystem.MERCURY;
+        System.out.println("Planet: Mercury");
+        System.out.println("Distance from Sun: " + mercury.getDistanceFromSun() + " km");
+        System.out.println("Distance from Previous Planet: " + mercury.getDistanceFromPreviousPlanet() + " km");
+        System.out.println("Radius: " + mercury.getRadius() + " km");
+        System.out.println("Previous Planet: " + (mercury.getPreviousPlanet() != null ? mercury.getPreviousPlanet().name() : "None"));
+        System.out.println("Next Planet: " + (mercury.getNextPlanet() != null ? mercury.getNextPlanet().name() : "None"));
     }
+}
 
    enum SolarSystem {
     MERCURY(0, 2439, null),
@@ -22,7 +22,7 @@ public class Main {
     URANUS(2_870_990_000, 25_362, SATURN),
     NEPTUNE(4_498_250_000, 24_622, URANUS);
 
-    private int distanceFromSun;
+   private int distanceFromSun;
     private int distanceFromPreviousPlanet;
     private int radius;
     private SolarSystem previousPlanet;
@@ -59,17 +59,5 @@ public class Main {
 
     public SolarSystem getNextPlanet() {
         return nextPlanet;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        SolarSystem mercury = SolarSystem.MERCURY;
-        System.out.println("Planet: Mercury");
-        System.out.println("Distance from Sun: " + mercury.getDistanceFromSun() + " km");
-        System.out.println("Distance from Previous Planet: " + mercury.getDistanceFromPreviousPlanet() + " km");
-        System.out.println("Radius: " + mercury.getRadius() + " km");
-        System.out.println("Previous Planet: " + (mercury.getPreviousPlanet() != null ? mercury.getPreviousPlanet().name() : "None"));
-        System.out.println("Next Planet: " + (mercury.getNextPlanet() != null ? mercury.getNextPlanet().name() : "None"));
     }
 }
